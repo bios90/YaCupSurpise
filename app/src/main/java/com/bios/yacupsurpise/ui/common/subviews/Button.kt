@@ -40,7 +40,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.bios.yacupsurpise.ui.common.theme.debounced
+import com.bios.yacupsurpise.ui.common.theme.dpTextUnit
 import com.bios.yacupsurpise.ui.common.theme.toDpLocalDensity
+import com.bios.yacupsurpise.ui.common.theme.withAlpha
 import com.bios.yacupsurpise.ui.common.utils.RippleTheme
 import com.test.yacupsurprise.ui.common.theme.AppTheme
 
@@ -55,8 +57,10 @@ fun ButtonOrange(
     elevation: ButtonElevation? = null,
     minWidth: Dp = ButtonDefaults.MinWidth,
     minHeight: Dp = ButtonDefaults.MinHeight,
-    contentPadding: PaddingValues = PaddingValues(horizontal = AppTheme.dimens.x4,
-        vertical = AppTheme.dimens.x3),
+    contentPadding: PaddingValues = PaddingValues(
+        horizontal = AppTheme.dimens.x4,
+        vertical = AppTheme.dimens.x3
+    ),
     imageStart: @Composable RowScope.() -> Unit = {},
     textColor: Color = AppTheme.color.white,
     showProgress: Boolean = false,
@@ -91,8 +95,10 @@ fun ButtonBlueSecondary(
     elevation: ButtonElevation? = null,
     minWidth: Dp = ButtonDefaults.MinWidth,
     minHeight: Dp = ButtonDefaults.MinHeight,
-    contentPadding: PaddingValues = PaddingValues(horizontal = AppTheme.dimens.x4,
-        vertical = AppTheme.dimens.x3),
+    contentPadding: PaddingValues = PaddingValues(
+        horizontal = AppTheme.dimens.x4,
+        vertical = AppTheme.dimens.x3
+    ),
     imageStart: @Composable RowScope.() -> Unit = {},
     textColor: Color = AppTheme.color.white,
     showProgress: Boolean = false,
@@ -127,8 +133,10 @@ fun ButtonBlueDark(
     elevation: ButtonElevation? = null,
     minWidth: Dp = ButtonDefaults.MinWidth,
     minHeight: Dp = ButtonDefaults.MinHeight,
-    contentPadding: PaddingValues = PaddingValues(horizontal = AppTheme.dimens.x4,
-        vertical = AppTheme.dimens.x3),
+    contentPadding: PaddingValues = PaddingValues(
+        horizontal = AppTheme.dimens.x4,
+        vertical = AppTheme.dimens.x3
+    ),
     imageStart: @Composable RowScope.() -> Unit = {},
     textColor: Color = AppTheme.color.white,
     showProgress: Boolean = false,
@@ -163,8 +171,10 @@ fun ButtonGray(
     elevation: ButtonElevation? = null,
     minWidth: Dp = ButtonDefaults.MinWidth,
     minHeight: Dp = ButtonDefaults.MinHeight,
-    contentPadding: PaddingValues = PaddingValues(horizontal = AppTheme.dimens.x4,
-        vertical = AppTheme.dimens.x3),
+    contentPadding: PaddingValues = PaddingValues(
+        horizontal = AppTheme.dimens.x4,
+        vertical = AppTheme.dimens.x3
+    ),
     imageStart: @Composable RowScope.() -> Unit = {},
     textColor: Color = AppTheme.color.black,
     showProgress: Boolean = false,
@@ -199,8 +209,10 @@ fun ButtonGreen(
     elevation: ButtonElevation? = null,
     minWidth: Dp = ButtonDefaults.MinWidth,
     minHeight: Dp = ButtonDefaults.MinHeight,
-    contentPadding: PaddingValues = PaddingValues(horizontal = AppTheme.dimens.x4,
-        vertical = AppTheme.dimens.x3),
+    contentPadding: PaddingValues = PaddingValues(
+        horizontal = AppTheme.dimens.x4,
+        vertical = AppTheme.dimens.x3
+    ),
     imageStart: @Composable RowScope.() -> Unit = {},
     textColor: Color = AppTheme.color.white,
     showProgress: Boolean = false,
@@ -396,4 +408,33 @@ fun ContentButton(
             }
         }
     }
+}
+
+@Composable
+fun FawButton(
+    modifier: Modifier = Modifier,
+    text: String,
+    textColor: Color,
+    textStyle: TextStyle = AppTheme.typography.FawBoldL,
+    corners: CornerBasedShape = RoundedCornerShape(AppTheme.dimens.x2),
+    contentPadding: PaddingValues =  PaddingValues(0.dp),
+    onClick: () -> Unit,
+) {
+    BaseButton(
+        text = text,
+        textStyle = textStyle,
+        modifier = modifier
+            .clip(corners),
+        onClick = onClick,
+        colorBg = Color.Transparent,
+        colorRipple = AppTheme.color.orange.withAlpha(0.5f),
+        isEnabled = true,
+        elevation = null,
+        minWidth = 0.dp,
+        minHeight = 0.dp,
+        contentPadding = contentPadding,
+        imageStart = { },
+        textColor = textColor,
+        showProgress = false
+    )
 }

@@ -29,10 +29,9 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.bios.yacupsurpise.R
 import com.bios.yacupsurpise.ui.common.subviews.AppSpacer
-import com.bios.yacupsurpise.ui.common.subviews.BaseProgress
 import com.bios.yacupsurpise.ui.common.subviews.ButtonBlueSecondary
 import com.bios.yacupsurpise.ui.common.subviews.ButtonOrange
-import com.bios.yacupsurpise.ui.common.subviews.InputMy
+import com.bios.yacupsurpise.ui.common.subviews.InputApp
 import com.bios.yacupsurpise.ui.common.theme.AnimatedVisibilityApp
 import com.bios.yacupsurpise.ui.common.theme.alignStart
 import com.bios.yacupsurpise.ui.common.theme.navBarHeightCompose
@@ -172,7 +171,7 @@ private fun LoginDialog(
                 text = "Войти"
             )
             AppSpacer(height = AppTheme.dimens.x2)
-            InputMy(
+            InputApp(
                 textAlign = TextAlign.Center,
                 value = emailInputText,
                 keyboardOptions = KeyboardOptions(
@@ -184,7 +183,7 @@ private fun LoginDialog(
                 }
             )
             AppSpacer(height = AppTheme.dimens.x2)
-            InputMy(
+            InputApp(
                 textAlign = TextAlign.Center,
                 visualTransformation = PasswordVisualTransformation(),
                 value = passwordInputText,
@@ -243,7 +242,7 @@ private fun RegisterDialog(
                 text = "Регистрация"
             )
             AppSpacer(height = AppTheme.dimens.x2)
-            InputMy(
+            InputApp(
                 textAlign = TextAlign.Center,
                 value = nameInputText,
                 hint = "Имя",
@@ -252,7 +251,7 @@ private fun RegisterDialog(
                 }
             )
             AppSpacer(height = AppTheme.dimens.x2)
-            InputMy(
+            InputApp(
                 textAlign = TextAlign.Center,
                 value = emailInputText,
                 keyboardOptions = KeyboardOptions(
@@ -264,7 +263,7 @@ private fun RegisterDialog(
                 }
             )
             AppSpacer(height = AppTheme.dimens.x2)
-            InputMy(
+            InputApp(
                 textAlign = TextAlign.Center,
                 visualTransformation = PasswordVisualTransformation(),
                 value = passwordInputText,

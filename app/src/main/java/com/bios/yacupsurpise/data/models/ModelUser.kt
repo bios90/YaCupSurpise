@@ -3,6 +3,8 @@ package com.bios.yacupsurpise.data.models
 import java.io.Serializable
 
 data class ModelUser(
-    val name: String?,
-    val email: String?,
-) : Serializable
+    override val id: Long? = null,
+    val name: String? = null,
+    val email: String? = null,
+    val avatar: ModelFile? = null
+) : Serializable, ObjectWithId

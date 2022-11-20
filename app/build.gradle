@@ -42,6 +42,11 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
+    //CameraX
+    implementation 'com.github.MasayukiSuda:CameraRecorder-android:v0.1.5'
+
+
     //Alerter
     implementation 'com.github.tapadoo:alerter:7.2.4'
 
@@ -64,11 +69,13 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation "androidx.activity:activity-compose:$compose_activity_version"
     implementation "androidx.compose.ui:ui-text:$compose_version"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
     implementation "androidx.activity:activity-compose:$compose_activity_version"
 
+    implementation "com.github.raquezha:InlineActivityResult:1.0.0-jitpack"
     implementation "com.squareup.okhttp3:okhttp:$ok_http_version"
     implementation "androidx.core:core-ktx:$kotlin_ktx"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_ktx"

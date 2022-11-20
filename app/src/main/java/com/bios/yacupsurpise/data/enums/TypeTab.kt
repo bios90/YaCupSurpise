@@ -4,5 +4,4 @@ enum class TypeTab {
     USERS,
     INCOMMING_SURPRISES,
     OUTGOING_SURPRISES,
-    PROFILE,
 }

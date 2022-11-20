@@ -3,6 +3,7 @@ package com.bios.yacupsurpise.base
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.location.Location
 import android.net.ConnectivityManager
 import android.net.wifi.WifiManager
@@ -10,6 +11,8 @@ import android.net.wifi.p2p.WifiP2pConfig
 import android.net.wifi.p2p.WifiP2pManager
 import android.os.Build
 import android.provider.Settings
+import android.util.TypedValue
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.gson.GsonBuilder
@@ -111,4 +114,14 @@ fun isNetworkAvailable(): Boolean {
     return activeNetworkInfo != null && activeNetworkInfo.isConnected
 }
 
+fun dp2pxInt(dp: Float): Int {
+    return dp2px(dp).toInt()
+}
+
+fun dp2px(dp: Float): Float {
+    val r = Resources.getSystem()
+    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.displayMetrics)
+}
+
+fun Boolean.toVisibility(): Int = if (this) View.VISIBLE else View.GONE
 

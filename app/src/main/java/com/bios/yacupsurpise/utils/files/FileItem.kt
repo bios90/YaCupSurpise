@@ -12,9 +12,13 @@ import java.io.Serializable
 import java.lang.RuntimeException
 
 
-class FileItem(private var uri: String) : Serializable, ObjectWithImageUrl, ObjectWithVideoUrl {
+data class FileItem(
+    private var uri: String,
+    val originalFileName: String? = null
+) : Serializable, ObjectWithImageUrl, ObjectWithVideoUrl {
     override var imageUrl: String? = uri
     override var videoUrl: String? = uri
+
 
     companion object {
         fun createFromData(data: Intent): FileItem {
@@ -26,17 +30,23 @@ class FileItem(private var uri: String) : Serializable, ObjectWithImageUrl, Obje
             } else {
                 val extension =
                     FileManager.getExtensionFromContentUri(data.data!!) ?: Consts.EXTENSION_MP4
-                file = FileManager.createTempVideFile(extension)
+                file = FileManager.createTempVideoFile(extension)
             }
 
             FileManager.copyToFileFromIntentData(file, data)
-            val myFile = FileItem(file.absolutePath)
+            val myFile = FileItem(
+                uri = file.absolutePath,
+                originalFileName = FileManager.getUriFileName(resultData)
+            )
 
             return myFile
         }
 
         fun createFromFile(file: File): FileItem {
-            return FileItem(file.absolutePath)
+            return FileItem(
+                uri = file.absolutePath,
+                originalFileName = file.name
+            )
         }
     }
 
@@ -60,17 +70,20 @@ class FileItem(private var uri: String) : Serializable, ObjectWithImageUrl, Obje
         return FileManager.isFileVideo(uri)
     }
 
-    fun toMultiPartData(field_name: String): MultipartBody.Part? {
-        return uriToPartBody(uri, field_name)
+    fun toMultiPartData(fieldName: String): MultipartBody.Part? {
+        return uriToPartBody(uri, fieldName)
     }
 
     fun getSize(): Long {
         return getFile().length()
     }
 
-
     fun getSizeInMb(): Double {
         return getFile().length().toDouble() / (1024 * 1024).toDouble()
+    }
+
+    fun getSizeString(): String {
+        return String.format("%.1f mb", getSizeInMb())
     }
 }
 

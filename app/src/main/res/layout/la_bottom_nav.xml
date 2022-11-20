@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lal_bottom_nav_container"
     android:layout_width="match_parent"
     android:layout_height="56dp"
     android:background="@color/white"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:elevation="38dp"
-    android:orientation="horizontal"
-    >
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="10"
-        android:background="@drawable/orange_ripple"
+        android:background="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <TextView
             style="@style/TvFawLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/faw_users"
-            />
+            android:text="@string/faw_users" />
 
         <TextView
             style="@style/TVReg.Xs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/users"
-            />
+            android:text="@string/users" />
 
     </LinearLayout>
 
@@ -40,25 +37,22 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="10"
-        android:background="@drawable/orange_ripple"
+        android:background="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <TextView
             style="@style/TvFawLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/faw_outgoing"
-            />
+            android:text="@string/faw_outgoing" />
 
         <TextView
             style="@style/TVReg.Xs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Отправленные"
-            />
+            android:text="Отправленные" />
 
     </LinearLayout>
 
@@ -66,52 +60,24 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="10"
-        android:background="@drawable/orange_ripple"
+        android:background="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <TextView
             style="@style/TvFawLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/faw_gift"
-            />
+            android:text="@string/faw_gift" />
 
         <TextView
             style="@style/TVReg.Xs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/surprises"
-            />
+            android:text="@string/surprises" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="10"
-        android:background="@drawable/orange_ripple"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        >
-
-        <TextView
-            style="@style/TvFawLight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/faw_user"
-            />
-
-        <TextView
-            style="@style/TVReg.Xs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="@string/profile"
-            />
-
-    </LinearLayout>
 
 </LinearLayout>

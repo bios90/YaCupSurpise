@@ -33,11 +33,10 @@ class SubScreenUsers(
 
     private fun consumeState(state: SubScreenUsersVm.State) {
         rootView.setContent {
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .background(AppTheme.color.white)) {
-
-            }
+            SubScreenUsersCompose(
+                users = state.users,
+                onUserClicked = vm.Listener()::onUserClicked
+            )
         }
     }
 

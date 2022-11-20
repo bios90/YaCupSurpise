@@ -13,6 +13,11 @@
     <string name="faw_users" translatable="false">&#xf0c0;</string>
     <string name="faw_outgoing" translatable="false">&#xf311;</string>
     <string name="faw_gift" translatable="false">&#xf06b;</string>
+    <string name="faw_times" translatable="false">&#xf00d;</string>
+    <string name="faw_image" translatable="false">&#xf03e;</string>
+    <string name="faw_video" translatable="false">&#xf1c8;</string>
+    <string name="faw_sand_clock" translatable="false">&#xf251;</string>
+    <string name="faw_check" translatable="false">&#xf00c;</string>
     <string name="surprises">Сюрпризы</string>
 
 

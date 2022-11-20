@@ -19,4 +19,20 @@ class ActMainVm : BaseViewModel<State, Effect>() {
     sealed class Effect {
         data class BaseEffectWrapper(val data: BaseEffectsData) : Effect()
     }
+
+    private fun changeTabIfNeeded(tab: TypeTab) {
+        if (tab != currentState.selectedTab) {
+            setStateResult(
+                state = currentState.copy(
+                    selectedTab = tab
+                )
+            )
+        }
+    }
+
+    inner class Listener {
+        fun onTabClicked(tab: TypeTab) = changeTabIfNeeded(tab)
+
+        fun onTabScrolled(tab: TypeTab) = changeTabIfNeeded(tab)
+    }
 }

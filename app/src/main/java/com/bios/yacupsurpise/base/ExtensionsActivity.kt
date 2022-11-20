@@ -1,6 +1,12 @@
 package com.bios.yacupsurpise.base
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.LayerDrawable
+import android.os.Build
+import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -79,4 +85,24 @@ fun <State, Effects> subscribeState(
         onStop = { vm.onStop(act) },
         onDestroy = { vm.onDestroy(act) },
     )
+}
+
+fun Dialog.setNavigationBarColor(color: Int) {
+    val window = this.window ?: return
+    val metrics = DisplayMetrics()
+    window.windowManager.getDefaultDisplay().getMetrics(metrics)
+
+    val dimDrawable = GradientDrawable()
+
+    val navigationBarDrawable = GradientDrawable()
+    navigationBarDrawable.shape = GradientDrawable.RECTANGLE
+    navigationBarDrawable.setColor(color)
+
+    val layers = arrayOf<Drawable>(dimDrawable, navigationBarDrawable)
+
+    val windowBackground = LayerDrawable(layers)
+
+    windowBackground.setLayerInsetTop(1, metrics.heightPixels)
+
+    window.setBackgroundDrawable(windowBackground)
 }

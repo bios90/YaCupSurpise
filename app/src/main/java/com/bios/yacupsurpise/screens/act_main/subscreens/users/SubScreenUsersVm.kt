@@ -6,6 +6,7 @@ import com.bios.yacupsurpise.base.view_models.BaseEffectsData.*
 import com.bios.yacupsurpise.base.view_models.BaseViewModel
 import com.bios.yacupsurpise.data.models.ModelUser
 import com.bios.yacupsurpise.di.SubScreenUsersInjector
+import com.bios.yacupsurpise.screens.act_create_surprise.ActCreateSurprise
 import com.bios.yacupsurpise.screens.act_main.subscreens.users.SubScreenUsersVm.*
 import com.bios.yacupsurpise.screens.act_main.subscreens.users.SubScreenUsersVm.Effect.*
 import com.bios.yacupsurpise.screens.act_welcome.ActWelcomeVm
@@ -58,14 +59,23 @@ class SubScreenUsersVm : BaseViewModel<State, Effect>() {
                 setStateResult(
                     state = currentState.copy(
                         users = it
-                    ),
-                    effect = BaseEffectWrapper(
-                        Alerter(
-                            BuilderAlerter.getGreenBuilder("Got ${it.size} Users")
-                        )
                     )
                 )
             }
         )
+    }
+
+    inner class Listener {
+        fun onUserClicked(user: ModelUser) {
+            setStateResult(
+                state = currentState,
+                effect = BaseEffectWrapper(
+                    NavigateTo(
+                        clazz = ActCreateSurprise::class.java,
+                        args = ActCreateSurprise.Args(receiver = user)
+                    )
+                )
+            )
+        }
     }
 }

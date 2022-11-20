@@ -65,7 +65,7 @@ fun MultilineInput(
 )
 
 @Composable
-fun InputMy(
+fun InputApp(
     modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,

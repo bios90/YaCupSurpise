@@ -10,5 +10,6 @@ object Consts {
     const val FOLDER_UPLOAD_POSTERS = FOLDER_APP_ROOT + "/upload_posters"
     const val SHARED_PREFS_KEY = "ya_cup_surpriser_prefs_key"
 
-    const val BASE_URL = "http://192.168.1.68"
+    const val BASE_URL = "http://http://yandexcup.ru/"
+    const val RECORD_DURATION = 10000L
 }

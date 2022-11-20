@@ -24,11 +24,16 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import com.test.yacupsurprise.ui.common.theme.AppTheme
 
 val String.color
     get() = Color(android.graphics.Color.parseColor(this))
+
+val Float.dpTextUnit: TextUnit
+    get() = with(Density(1f)) { this@dpTextUnit.dp.toSp() }
 
 fun getComposeRootView(context: Context) = ComposeView(context)
     .apply {

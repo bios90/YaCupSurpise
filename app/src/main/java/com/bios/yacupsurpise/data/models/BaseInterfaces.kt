@@ -2,17 +2,21 @@ package com.bios.yacupsurpise.data.models
 
 import java.io.Serializable
 
+interface ObjectWithId {
+    val id: Long?
+}
+
 interface ObjectWithImageUrl : Serializable {
-    var imageUrl: String?
+    val imageUrl: String?
 
     companion object {
         fun getFromString(str: String): ObjectWithImageUrl =
             object : ObjectWithImageUrl {
-                override var imageUrl: String? = str
+                override val imageUrl: String = str
             }
     }
 }
 
 interface ObjectWithVideoUrl {
-    var videoUrl: String?
+    val videoUrl: String?
 }

@@ -2,9 +2,11 @@ package com.bios.yacupsurpise.utils.files
 
 import android.content.ContentResolver
 import android.content.Intent
+import android.database.Cursor
 import android.net.Uri
 import java.io.*
 import android.os.Environment
+import android.provider.OpenableColumns
 import android.util.Log
 import android.webkit.MimeTypeMap
 import java.util.*
@@ -22,7 +24,7 @@ object FileManager {
         return createFile(name, null, Consts.FOLDER_TEMP_FILES)
     }
 
-    fun createTempVideFile(extension: String = Consts.EXTENSION_MP4): File {
+    fun createTempVideoFile(extension: String = Consts.EXTENSION_MP4): File {
         val name = getNameForNewFile(extension)
         return createFile(name, null, Consts.FOLDER_TEMP_FILES)
     }
@@ -78,7 +80,6 @@ object FileManager {
         val d = data.data ?: return
         val inputStream = App.app.contentResolver.openInputStream(d)
         val outputStream = FileOutputStream(file)
-
         inputStream ?: return
         copy(inputStream, outputStream)
     }
@@ -117,5 +118,22 @@ object FileManager {
     fun isFileImage(pathReal: String): Boolean {
         val mimeType = URLConnection.guessContentTypeFromName(pathReal)
         return mimeType.startsWith("image")
+    }
+
+    fun getUriFileName(uri: Uri): String? {
+        var cursor: Cursor? = null
+        var name: String? = null
+        try {
+            cursor = App.app.contentResolver.query(uri, null, null, null, null)!!
+            val nameIndex: Int = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+            cursor.moveToFirst()
+            name = cursor.getString(nameIndex)
+            return name
+        } catch (e: Exception) {
+        } finally {
+            cursor?.close()
+        }
+
+        return name
     }
 }
