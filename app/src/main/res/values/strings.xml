@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">YaCupSurpise</string>
+    <string name="please_fill">Пожалуйста заполните поле \'%1$s\'</string>
+    <string name="please_enter_email">Пожалуйста введите email</string>
+    <string name="err_not_internet">Нет соеднинения с сетью</string>
+    <string name="err_loading">При загрузке возникла ошибка. Повторите позже.</string>
+    <string name="err_parsing">Возникла ошибка при обработке запроса.</string>
+    <string name="loading">Загрузка</string>
+    <string name="users">Пользователи</string>
+    <string name="profile">Профиль</string>
+
+    <string name="faw_user" translatable="false">&#xf007;</string>
+    <string name="faw_users" translatable="false">&#xf0c0;</string>
+    <string name="faw_outgoing" translatable="false">&#xf311;</string>
+    <string name="faw_gift" translatable="false">&#xf06b;</string>
+    <string name="surprises">Сюрпризы</string>
+
+
+</resources>
